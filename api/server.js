@@ -7,18 +7,19 @@ const router = jsonServer.router("db.json");
 // server.use(cors);
 const middlewares = jsonServer.defaults();
 server.use(middlewares);
+server.use(jsonAuth);
 server.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "*");
 	next();
 });
 // Add this before server.use(router)
-server.use(
-	jsonServer.rewriter({
-		"/login*": "/users*",
-		"/register": "/users",
-	})
-);
+// server.use(
+// 	jsonServer.rewriter({
+// 		"/login*": "/users*",
+// 		"/register": "/users",
+// 	})
+// );
 server.use(router);
 server.post("/login", (req, res, next) => {
 	jsonAuth;
