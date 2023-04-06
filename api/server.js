@@ -14,6 +14,13 @@ server.use((req, res, next) => {
 	res.header("Access-Control-Allow-Headers", "*");
 	next();
 });
+server.use((req, _, next) => {
+	if (req.method === "POST") {
+		req.body.createdAt = Date.now();
+	}
+	// Передаем управление роутеру `JSON Server`
+	next();
+});
 // Add this before server.use(router)
 // server.use(
 // jsonServer.rewriter({
