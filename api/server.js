@@ -15,6 +15,7 @@ server.use((req, res, next) => {
 server.use(
 	jsonServer.rewriter({
 		"/login": "/users",
+		"/login*": "/users*",
 		"/register": "/users",
 	})
 );
