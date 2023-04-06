@@ -21,9 +21,6 @@ server.use((req, res, next) => {
 // 	})
 // );
 server.use(router);
-server.post("/login", (req, res, next) => {
-	jsonAuth;
-});
 server.listen(3000, () => {
 	console.log("JSON Server is running");
 });
