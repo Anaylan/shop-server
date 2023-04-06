@@ -1,13 +1,13 @@
 // See https://github.com/typicode/json-server#module
-const jsonServer = require("json-server-auth");
-// const jsonAuth = require("json-server-auth");
+const jsonServer = require("json-server");
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 // const cors = require("cors");
 // server.use(cors);
 const middlewares = jsonServer.defaults();
+const authMiddle = require("json-server-auth");
 server.use(middlewares);
-// server.use(jsonAuth);
+server.use(authMiddle);
 server.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "*");
