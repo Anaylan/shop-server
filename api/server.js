@@ -14,8 +14,8 @@ server.use((req, res, next) => {
 // Add this before server.use(router)
 server.use(
 	jsonServer.rewriter({
-		"/api/*": "/$1",
-		"/blog/:resource/:id/show": "/:resource/:id",
+		"/login": "/users",
+		"/register": "/users",
 	})
 );
 server.use(router);
