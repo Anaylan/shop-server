@@ -5,7 +5,7 @@
 	"main": "api/server.js",
 	"scripts": {
 		"start": "node api/server.js",
-		"auth": "json-server-auth --watch db.json --port 8080",
+		"auth": "json-server-auth --watch db.json --port 8080 --host 0.0.0.0",
 		"prod": "concurrently \"yarn start\" \"yarn auth\""
 	},
 	"dependencies": {
