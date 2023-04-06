@@ -7,7 +7,7 @@ const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 const authMiddle = require("json-server-auth");
 server.use(middlewares);
-
+server.use(authMiddle);
 server.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "*");
@@ -21,7 +21,7 @@ server.use((req, res, next) => {
 // 	})
 // );
 server.use(router);
-server.use(authMiddle);
+
 server.listen(3000, () => {
 	console.log("JSON Server is running");
 });
